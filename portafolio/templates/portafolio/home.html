@@ -1,0 +1,43 @@
+{% extends 'portafolio/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="row justify-content-center">
+  <div class="text-center">
+      <img src="{% static 'portafolio/me.jpg' %}" height="250" />
+  </div>
+</div>
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+      <h1 id="hometext" class="font-weight-bold">Data Scientist | PM | ML</h1>
+  </div>
+</div>
+
+<h2 class="mt-5">Portfolio</h2>
+<hr>
+<div class="row">
+    {% for project in projects %}
+    <div class="col-lg-4 col-md-6">
+
+        {% if project.url %}
+            <a href="{{ project.url }}">
+                <img src="{{ project.image.url }}" width="100%" height="200px">
+            </a>
+        {% else %}
+            <img src="{{ project.image.url }}" width="100%" height="200px">
+        {% endif %}
+
+        <h3>{{ project.title }}</h3>
+        <!--<p class="small"><b>{{ project.date_begin|date:'M Y'|upper }} - {{ project.date_end|date:'M Y'|upper }}</b></p>-->
+        <p>{{ project.description|safe }}</p>
+        <p><b>Technologies involved:</b><br>{{ project.technologies }}</p>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

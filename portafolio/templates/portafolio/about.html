@@ -1,0 +1,25 @@
+{% extends 'portafolio/base.html' %}
+
+{% block content %}
+
+<div class="container text-center">
+    <h1>Jacesca's Portafolio</h1>
+    {% load static %}
+
+    <br>
+
+    <img src="{% static 'portafolio/me.jpg' %}" height="350" alt="My image"/>
+
+</div>
+<br/>
+<div class="container text-justify">
+    <pclass="text-justify">
+        Jacqueline is a Data Scientist with a strong background in mathematics and statistics.
+        Excellent understanding of business operations, covering management, planning, contingency,
+        application development, gender perspective, budgets, and audits, among others.
+        Creative in finding solutions to problems and determining modifications for optimal use of
+        organizational data.
+    </p>
+</div>
+
+{% endblock %}
